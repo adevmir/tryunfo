@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes, { bool } from 'prop-types';
 
-class Form extends Component(props) {
+class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3 } = this.props;
     const { cardTrunfo, isSaveButtonDisabled, onInputChange } = this.props;
