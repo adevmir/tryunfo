@@ -23,7 +23,7 @@ class Form extends Component {
               id="desc"
               name="desc"
               type="textarea"
-              data-testid="name-input"
+              data-testid="description-input"
             />
           </label>
 
@@ -84,6 +84,7 @@ class Form extends Component {
               id="stry"
               name="stry"
               type="checkbox"
+              data-testid="trunfo-input"
             />
             Carta Super Tryunfo?
           </label>
