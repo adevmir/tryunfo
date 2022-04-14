@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Card extends Component {
+export default class Card extends React.Component {
   render() {
-    const { cardName, cardDescription, cardAttr1, cardAttr2 } = this.props;
-    const { cardAttr3, cardTrunfo, cardImage, cardRare } = this.props;
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    } = this.props;
     return (
       <div>
-        <div data-testid="name-card">
+        <p data-testid="name-card">
           { cardName }
-        </div>
+        </p>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
         <p data-testid="description-card">
           { cardDescription }
@@ -47,5 +55,3 @@ Card.propTypes = {
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
 };
-
-export default Card;
