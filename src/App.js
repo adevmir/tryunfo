@@ -26,6 +26,30 @@ class App extends React.Component {
     });
   }
 
+  validator = () => {
+    const {
+      name,
+      desc,
+      atr1,
+      atr2,
+      atr3,
+      img,
+    } = this.state;
+
+    const atrmax = 90;
+    const maxpoints = 210;
+    if (name === ''
+    || desc === ''
+    || img === ''
+    || atr1 > atrmax || atr1 < 0
+    || atr2 > atrmax || atr2 < 0
+    || atr3 > atrmax || atr3 < 0
+    || parseInt(atr1, 10) + parseInt(atr2, 10) + parseInt(atr3, 10) > maxpoints) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
     const {
       name,
@@ -49,7 +73,7 @@ class App extends React.Component {
           cardImage={ img }
           cardRare={ rar }
           cardTrunfo={ tryf }
-          //  isSaveButtonDisabled = {}
+          isSaveButtonDisabled={ this.validator() }
           onInputChange={ this.onInputChange }
         />
         <Card
@@ -61,9 +85,7 @@ class App extends React.Component {
           cardImage={ img }
           cardRare={ rar }
           cardTrunfo={ tryf }
-          //  isSaveButtonDisabled = {}
           onInputChange={ this.onInputChange }
-        // onSaveButtonClick = {}
         />
       </div>
     );

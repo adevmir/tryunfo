@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes, { bool } from 'prop-types';
+
+import PropTypes from 'prop-types';
 
 export default class Form extends React.Component {
   render() {
@@ -77,7 +78,7 @@ export default class Form extends React.Component {
           Imagem da carta:
           <input
             name="img"
-            type="file"
+            type="text"
             data-testid="image-input"
             value={ cardImage }
             onChange={ onInputChange }
@@ -124,16 +125,16 @@ export default class Form extends React.Component {
 }
 
 Form.propTypes = {
-  cardName: PropTypes.string.isRequired,
-  cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
-  cardImage: PropTypes.string.isRequired,
-  cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.bool.isRequired,
+  cardName: PropTypes.string,
+  cardDescription: PropTypes.string,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
+  cardImage: PropTypes.string,
+  cardRare: PropTypes.string,
+  cardTrunfo: PropTypes.boolean,
   // hasTrunfo: PropTypes.bool.isRequired,
-  isSaveButtonDisabled: bool.isRequired,
-  onInputChange: PropTypes.func.isRequired,
-  onSaveButtonClick: PropTypes.func.isRequired,
-};
+  isSaveButtonDisabled: PropTypes.boolean,
+  onInputChange: PropTypes.func,
+  onSaveButtonClick: PropTypes.func,
+}.isRequired;
