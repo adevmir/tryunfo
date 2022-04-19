@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Deck from './components/Deck';
 
 class App extends React.Component {
   constructor() {
@@ -17,6 +18,7 @@ class App extends React.Component {
       tryf: false,
       isSaveButtonDisabled: true,
       cards: [],
+      hasTrunfo: false,
     };
   }
 
@@ -87,6 +89,9 @@ class App extends React.Component {
       rar,
       tryf,
     };
+    if (tryf === true) {
+      this.setState({ hasTrunfo: true });
+    }
     cards.push(newCard);
     this.setState({
       name: '',
@@ -111,6 +116,8 @@ class App extends React.Component {
       rar,
       tryf,
       isSaveButtonDisabled,
+      hasTrunfo,
+      cards,
     } = this.state;
     return (
       <div>
@@ -127,6 +134,7 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.handleSubmit }
+          hasTrunfo={ hasTrunfo }
         />
         <Card
           cardName={ name }
@@ -137,9 +145,8 @@ class App extends React.Component {
           cardImage={ img }
           cardRare={ rar }
           cardTrunfo={ tryf }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.handleSubmit }
         />
+        <Deck cards={ cards } />
       </div>
     );
   }
